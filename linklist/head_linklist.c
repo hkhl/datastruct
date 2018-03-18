@@ -296,12 +296,12 @@ int main()
 
     InsetElement(p, 2, 13);  //第二个位置写入13
     InsetElement(p, 2, 13);  //第二个位置写入13
-    InsetElement(p, 2, 13);  //第二个位置写入13
+    InsetElement(p, 3, 15);  //第二个位置写入13
     printf("插入数值后:");
     PrintList(p);
 
     int n = GetPosition(p, 13);
-    printf("获取插入数值的位置:");
+    printf("获取插入数值13的位置:");
     printf("%d\n", n);
 
     transrev(&list);
