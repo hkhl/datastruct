@@ -32,7 +32,7 @@ void QuickSort(int a[], int left, int right)
                 Swap(&a[i],& a[j]);
             }
         }
-        Swap(&a[i],& a[left]);
+        Swap(&a[i], &a[left]);
         QuickSort(a, left, i-1);
         QuickSort(a, i+1, right);
     }
@@ -49,8 +49,9 @@ int i, j, temp;
 
         do
         {
+            //找到右边第一个小于key的值
             while(a[j] >= temp && i < j)
-            j--;
+                j--;
             if(i < j)
             {
                 a[i] = a[j];

@@ -11,6 +11,7 @@
 
 void ShellSort(int nums[], int numsSize)
 {
+    /*
     for(int gap = numsSize/2; gap > 0; gap /= 2)           //gap最小为1,所以>0
     {
         for(int i = gap; i < numsSize; i++)
@@ -25,9 +26,25 @@ void ShellSort(int nums[], int numsSize)
                 }
             }
         }
+    }*/
+    
+    /*第二种写法,  仿插入排序*/
+    for(int gap = numsSize/2; gap > 0; gap /= 2)        
+    {
+        for(int i = gap; i < numsSize; i++)
+        {
+            int j = i-gap;
+            int temp = nums[i];
+
+            while((j >= 0) && (nums[j] > temp) )
+            {
+                nums[j+gap] = nums[j];
+                j = j - gap;
+            }
+            nums[j+gap] = temp;
+        }
     }
 }
-
 
 int main()
 {
