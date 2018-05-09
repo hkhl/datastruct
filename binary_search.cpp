@@ -21,13 +21,13 @@ using namespace std;
 template <class Ran, class X>
 bool binary_search(Ran begin, Ran end, const X& x)
 {
-    while (begin <= end)
-    {
+    while (begin < end)   //用小于等与,vector为空发生段错误
+    {                     //如果是闭合区间, 用 < 将无法查核到最后一个元素
         //找找区间中点
         Ran mid = begin + (end - begin) / 2;
 
         if (x < *mid)
-            end = mid-1;
+            end = mid;
         else if (*mid < x)
             begin = mid + 1;
         else
