@@ -1,8 +1,10 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 
 //非递归遍历二叉树
 //递归遍历二叉树
+//二叉是的层序遍历
 
 
 
@@ -237,11 +239,33 @@ void last_print(TreeNode *root)
 
 
 
+void layer_print(TreeNode *root)  //层序遍历
+{
+    queue<TreeNode *> q;
+    TreeNode *temp = root;
+
+    q.push(root);
+    while (!q.empty())
+    {
+        temp = q.front();
+        q.pop();
+        cout << temp->val << " ";
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+}
+
+
+
+
+
 int main()
 {
-    int arr[] = {8,4,9,6,2,5,7};
+    int arr[] = {8,4,9,6,2,5,7, 10};
 
-    for(int i = 0; i < 7; i++)
+    for(int i = 0; i < sizeof(arr)/sizeof(int); i++)
     {
         insert(arr[i]);
     }
@@ -257,9 +281,13 @@ int main()
      */
 
 
-    post_order_traversal(root);
-    last_print(root);
+    /*
+     *post_order_traversal(root);
+     *last_print(root);
+     */
 
+
+    layer_print(root);
 
     return 0;
 }
